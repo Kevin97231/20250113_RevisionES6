@@ -68,3 +68,9 @@ const person2 = { ...person };
 // copie en modifiant la valeur d'un des attributs
 const person3 = { ...person, name: "Martin" };
 console.log(person3);
+
+const personInfo = ({ name, age }) => console.log(name, age);
+
+personInfo({ name: "John", age: 30 });
+
+personInfo(person2);

@@ -17,3 +17,40 @@
 //      -> bonusPercentage est égal à 15% pour tous les managers.
 //      -> Redéfinissez la méthode calculateSalary() dans la classe Manager pour prendre en compte le bonus de performance en fonction du pourcentage de bonus.
 //           ==> calculeSalary() renverra -> baseSalary * bonusPercentage;
+
+// Partie 1
+class Employee {
+  constructor(name, age, baseSalary, employeeId) {
+    this.name = name;
+    this.age = age;
+    this.baseSalary = baseSalary;
+    this.employeeId = employeeId;
+  }
+
+  calculeSalary() {
+    return this.baseSalary * 1.1;
+  }
+}
+
+// Partie 2
+class Manager extends Employee {
+  #bonusPercentage = 1.15;
+
+  //    Le constructeur n'est pas nécessaire ici --> Pas de constructeur, c'est le constructeur parent qui sera appelé
+  //   constructor(name, age, baseSalary, employeeId) {
+  //     super(name, age, baseSalary, employeeId);
+  //   }
+
+  calculeSalary() {
+    return this.baseSalary * this.#bonusPercentage;
+  }
+}
+
+employe = new Employee("Jean", 42, 1000, 1);
+manager = new Manager("Charles", 42, 1000, 2);
+
+console.log(employe);
+console.log(manager);
+
+console.log(employe.calculeSalary());
+console.log(manager.calculeSalary());
